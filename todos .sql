@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 13, 2024 at 11:11 AM
+-- Generation Time: Jan 03, 2025 at 07:58 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -39,8 +39,8 @@ CREATE TABLE `migrations` (
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (1, '2024_12_09_120614_create_todos_table', 1),
-(2, '2024_12_11_115641_create_auth_table', 2),
-(3, '2024_12_11_120119_create_user_table', 3);
+(2, '2024_12_11_120119_create_user_table', 1),
+(3, '2024_12_21_063158_create_todos_table', 2);
 
 -- --------------------------------------------------------
 
@@ -61,11 +61,16 @@ CREATE TABLE `todos` (
 --
 
 INSERT INTO `todos` (`id`, `first_name`, `last_name`, `created_at`, `updated_at`) VALUES
-(1, 'vishal a', 'chotaliya', '2024-12-11 00:25:55', '2024-12-13 04:30:44'),
-(2, 'jaydip', 'chotaliya', '2024-12-11 01:17:49', '2024-12-11 01:17:49'),
-(3, 'ram', 'ram', '2024-12-11 01:58:26', '2024-12-11 01:58:26'),
-(4, 'vishal', 'chotaliya', '2024-12-11 03:08:27', '2024-12-11 03:52:30'),
-(5, 'darshan', 'mistry', '2024-12-11 03:34:49', '2024-12-11 03:34:49');
+(4, 'Carol C.', 'Abernathy', '2024-12-30 23:41:15', '2025-01-01 00:37:45'),
+(5, 'Sean A.', 'Orr', '2024-12-30 23:41:38', '2024-12-30 23:41:38'),
+(6, 'Susan B.', 'Peck', '2024-12-30 23:41:54', '2024-12-30 23:41:54'),
+(7, 'Robert A.', 'Buchanan', '2024-12-30 23:42:08', '2024-12-30 23:42:08'),
+(8, 'Dana', 'Kharitonova', '2024-12-30 23:42:37', '2024-12-30 23:42:37'),
+(9, 'Scott B.', 'Elwood', '2024-12-30 23:43:23', '2024-12-30 23:43:23'),
+(10, 'James K.', 'Friel', '2024-12-30 23:43:36', '2024-12-30 23:43:36'),
+(11, 'Ida D.', 'Aguilera', '2024-12-30 23:43:49', '2024-12-30 23:43:49'),
+(13, 'pankaj', 'jangid', '2025-01-01 00:38:12', '2025-01-01 00:38:12'),
+(14, 'vishal', 'chotaliya', '2025-01-01 01:23:15', '2025-01-01 01:23:15');
 
 -- --------------------------------------------------------
 
@@ -78,6 +83,7 @@ CREATE TABLE `users` (
   `user_name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
+  `googleid` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -86,9 +92,8 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `user_name`, `email`, `password`, `created_at`, `updated_at`) VALUES
-(1, 'vishal', 'vishal@gmail.com', '$2y$12$WYXLW6SOn.yPWIcT0UT7he4GY7vgJnrk8XZDGRdn/nlXAL.cv1qyK', '2024-12-13 00:42:52', '2024-12-13 00:42:52'),
-(2, 'ram', 'ram@gmail.com', '$2y$12$8tRlm2B4whJ7Xy.Hf/hnsu4owhmTq.q///W4WSEsTB8eXkxYCVzaq', '2024-12-13 01:20:43', '2024-12-13 01:20:43');
+INSERT INTO `users` (`id`, `user_name`, `email`, `password`, `googleid`, `created_at`, `updated_at`) VALUES
+(1, 'Chotaliya Vishal', 'vishalchotaliya2003@gmail.com', '$2y$12$.WFoPYYu8VyEJgxbqG/OeO3bEb3XRUfYoVKPwHHsPYMj668L/sPue', '102977005451445259881', '2025-01-01 01:43:24', '2025-01-01 01:43:24');
 
 --
 -- Indexes for dumped tables
@@ -126,13 +131,13 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `todos`
 --
 ALTER TABLE `todos`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
